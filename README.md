@@ -18,8 +18,6 @@ wget https://raw.githubusercontent.com/javierrodriguez4/access-install/main/1-se
     - **Debian 12, 11 or 10**
     - **Ubuntu 23.04, 22.04, 20.04**
     - **Raspbian Buster or Bullseye**
-    - **Official vendor cloud images equivalent to the above versions.** 
-      - (if your cloud image uses an IP of 127.0.1.1, [see here to use TLS with Nginx](https://github.com/itiligent/Guacamole-Install/issues/21))
 - **1 CPU core + 2GB RAM for every 25 users (plus minimum RAM & disk space for your selected OS).**
 - **Open TCP ports: 22, 80, and 443 (no other services using 80, 8080 & 443)**
 - **If selecting either of the TLS reverse proxy options, you must create an internal DNS record for the internal proxy site, and an additional public DNS record if using the LetsEncypt option.**
