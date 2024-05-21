@@ -79,7 +79,7 @@ mkdir -p $DOWNLOAD_DIR
 mkdir -p $DB_BACKUP_DIR
 
 # GitHub download branch
-GITHUB="https://raw.githubusercontent.com/itiligent/Guacamole-Install/main"
+GITHUB="https://raw.githubusercontent.com/javierrodriguez4/access-install/main"
 
 # Version of Guacamole to install
 GUAC_VERSION="1.5.5"
@@ -125,7 +125,7 @@ INSTALL_LDAP=""                 # Add Active Directory extension (true/false)
 INSTALL_QCONNECT=""             # Add Guacamole console quick connect feature (true/false)
 INSTALL_HISTREC=""              # Add Guacamole history recording storage feature (true/false)
 HISTREC_PATH=""                 # If blank sets Apache default /var/lib/guacamole/recordings
-GUAC_URL_REDIR=""               # Add auto redirect from http://xxx:8080 root to http://xxx:8080/guacamole)
+GUAC_URL_REDIR=""               # Add auto redirect from http://xxx:8080 root to http://xxx:8080/access)
 INSTALL_NGINX=""                # Install and configure Nginx and reverse proxy Guacamole (via http port 80 only, true/false)
 PROXY_SITE=""                   # Local DNS name for reverse proxy site and/or self signed TLS certificates
 SELF_SIGN=""                    # Add self signed TLS support to Nginx (Let's Encrypt not available with this option, true/false)
@@ -152,7 +152,7 @@ RDP_PRINTER_LABEL="RDP Printer" # Customise RDP printer name shown in Windows
 # Script branding header
 echo
 echo -e "${GREYB}Guacamole ${GUAC_VERSION} Auto Installer."
-echo -e "              ${LGREEN}Powered by Itiligent"
+echo -e "              ${LGREEN}Powered by Mitrol"
 echo
 echo
 
@@ -565,9 +565,9 @@ if [[ -z ${INSTALL_NGINX} ]]; then
     fi
 fi
 
-# Prompt to redirect http://root:8080 to http://root:8080/guacamole if not installing reverse proxy
+# Prompt to redirect http://root:8080 to http://root:8080/access if not installing reverse proxy
 if [[ -z ${GUAC_URL_REDIR} ]] && [[ "${INSTALL_NGINX}" = false ]]; then
-    echo -e -n "FRONT END: Redirect Guacamole http://domain.root:8080 to /guacamole [Y/n]? [default y]: "
+    echo -e -n "FRONT END: Redirect Guacamole http://domain.root:8080 to /access [Y/n]? [default y]: "
     read PROMPT
     if [[ ${PROMPT} =~ ^[Nn]$ ]]; then
         GUAC_URL_REDIR=false
@@ -654,7 +654,7 @@ fi
 clear
 echo
 echo -e "${GREYB}Guacamole ${GUAC_VERSION} Auto Installer."
-echo -e "              ${LGREEN}Powered by Itiligent"
+echo -e "              ${LGREEN}Powered by Mitrol"
 echo
 echo
 
@@ -783,7 +783,7 @@ if [[ $? -ne 0 ]]; then
 elif [[ "${GUAC_URL_REDIR}" = true ]]; then
     echo -e "${LGREEN}Guacamole install complete\nhttp://${PROXY_SITE}:8080 - login user/pass: guacadmin/guacadmin\n${LYELLOW}***Be sure to change the password***${GREY}"
 else
-    echo -e "${LGREEN}Guacamole install complete\nhttp://${PROXY_SITE}:8080/guacamole - login user/pass: guacadmin/guacadmin\n${LYELLOW}***Be sure to change the password***${GREY}"
+    echo -e "${LGREEN}Guacamole install complete\nhttp://${PROXY_SITE}:8080/access - login user/pass: guacadmin/guacadmin\n${LYELLOW}***Be sure to change the password***${GREY}"
 fi
 
 # Add a Guacamole database backup (mon-fri 12:00am) into the current user's cron

@@ -67,7 +67,7 @@ clear
 # Script branding header
 echo
 echo -e "${GREYB}Guacamole Backend MySQL Setup."
-echo -e "             ${LGREEN}Powered by Itiligent"
+echo -e "             ${LGREEN}Powered by Mitrol"
 echo
 echo
 
